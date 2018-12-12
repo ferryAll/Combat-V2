@@ -4,9 +4,6 @@ class Personnage
   private $_degats,
           $_id,
           $_nom;
-          $_force;
-          $_niveau;
-          $_experience;
   
   const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
   const PERSONNAGE_TUE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
@@ -65,7 +62,6 @@ class Personnage
   
   // GETTERS //
   
-
   public function degats()
   {
     return $this->_degats;
