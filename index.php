@@ -26,7 +26,7 @@ if (isset($_SESSION['perso'])) // Si la session perso existe, on restaure l'obje
 {
   $perso = $_SESSION['perso'];
 }
-
+ 
 if (isset($_POST['creer']) && isset($_POST['nom'])) // Si on a voulu créer un personnage.
 {
   $perso = new Personnage(['nom' => $_POST['nom']]); // On crée un nouveau personnage.
