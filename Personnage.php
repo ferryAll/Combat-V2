@@ -5,12 +5,15 @@ class Personnage
           $_id,
           $_nom,
           $_atout,
-          $_type;
+          $_type,
+          $_timeEndormi;
   
   const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
   const PERSONNAGE_TUE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
   const PERSONNAGE_FRAPPE = 3; // Constante renvoyée par la méthode `frapper` si on a bien frappé le personnage.
-  
+  const PERSONNAGE_ENSORCELE = 4;
+  const PAS_DE_MAGIE = 5;
+  const PERSONNAGE_ENDORMI = 6;
   
   public function __construct(array $donnees)
   {
@@ -84,7 +87,6 @@ class Personnage
   {
     return $this->_atout;
   }
-  
   public function setDegats($degats)
   {
     $degats = (int) $degats;

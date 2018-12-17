@@ -1,6 +1,26 @@
 <?php
 class Magicien extends Personnage {
-    const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
-    const PERSONNAGE_TOUCHE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
-
+ public function lancerUnSort(Personnage $perso)
+ {
+     if ($this->_degats >= 0 && $this->degats <=25)
+     {
+         $this->atout = 4;
+     }
+     elseif ($this->_degats >= 25 && $this->degats <=50)
+     {
+         $this->atout = 3;
+     }
+     elseif ($this->_degats >= 50 && $this->degats <= 75)
+     {
+         $this->atout = 2;
+     }
+     elseif ($this->_degats >=75  && $this->degats <=90)
+     {
+         $this->atout = 1;
+     }
+     elseif ($this->_degats > 90)
+     {
+         $this->atout = 0;
+     }
+ }
 }
