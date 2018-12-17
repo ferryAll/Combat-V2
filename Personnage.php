@@ -13,6 +13,7 @@ class Personnage
   public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
+    echo static::class;
   }
   
   public function nomValide()
