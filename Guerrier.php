@@ -1,5 +1,5 @@
 <?php
-class Magicien extends Personnage {
+class Guerrier extends Personnage {
   
     public function __construct(array $donnees)
     {
