@@ -4,6 +4,8 @@ class Personnage
   private $_degats,
           $_id,
           $_nom;
+          $_atout;
+          $_type;
   
   const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
   const PERSONNAGE_TUE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
