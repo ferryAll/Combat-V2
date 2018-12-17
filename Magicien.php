@@ -21,7 +21,7 @@ class Magicien extends Personnage {
      {
          $this->atout = 1;
      }
-     elseif ($this->_degats > 90)
+     else
      {
          $this->atout = 0;
      }
