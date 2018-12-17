@@ -163,8 +163,11 @@ else
     <form action="" method="post">
       <p>
         Nom : <input type="text" name="nom" maxlength="50" />
-        <select name="type"> <option value="magicien"> Magicien</option> <option value="guerrier"> Guerrier</option> </select>
-        <input type="submit" value="Créer ce personnage" name="creer" />
+        <input type="submit" value="Créer ce personnage" name="creer" /><br>
+        Type: <select name="type"> 
+                  <option value="magicien"> Magicien</option>
+                  <option value="guerrier"> Guerrier</option>
+              </select>
         <input type="submit" value="Utiliser ce personnage" name="utiliser" />
       
       </p>

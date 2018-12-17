@@ -25,6 +25,7 @@ class Magicien extends Personnage {
      {
          $this->atout = 0;
      }
+     
  }
 
 }

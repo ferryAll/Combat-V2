@@ -1,6 +1,6 @@
 <?php
 class Guerrier extends Personnage {
-  public function degatsPlus(Personnage $perso)
+  public function recevoirDegats(Personnage $perso)
   {
       // la cible n'est pas celui qui lance le sort
  
@@ -25,6 +25,8 @@ class Guerrier extends Personnage {
       {
           $this->atout = 0;
       }
+      $this->degats +=5 - $this->atout;
+      
   }
 // calcul des atouts
 // augmentera les dégats par rapport de l'atout
