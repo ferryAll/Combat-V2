@@ -2,6 +2,9 @@
 class Magicien extends Personnage {
  public function lancerUnSort(Personnage $perso)
  {
+     // la cible n'est pas celui qui lance le sort
+
+     // le magicien doit obligatoirement avoir de la magie
      if ($this->_degats >= 0 && $this->degats <=25)
      {
          $this->atout = 4;
@@ -23,4 +26,5 @@ class Magicien extends Personnage {
          $this->atout = 0;
      }
  }
+
 }
