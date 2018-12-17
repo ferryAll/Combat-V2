@@ -166,8 +166,6 @@ else
            <option value="guerrier"> Guerrier</option>
         </select>
         <input type="submit" value="Créer ce personnage" name="creer" />
-
-
         <input type="submit" value="Utiliser ce personnage" name="utiliser" />
       
       </p>
