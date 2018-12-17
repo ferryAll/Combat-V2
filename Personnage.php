@@ -3,8 +3,8 @@ class Personnage
 {
   private $_degats,
           $_id,
-          $_nom;
-          $_atout;
+          $_nom,
+          $_atout,
           $_type;
   
   const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
@@ -78,6 +78,11 @@ class Personnage
   public function nom()
   {
     return $this->_nom;
+  }
+  
+  public function atout()
+  {
+    return $this->_atout;
   }
   
   public function setDegats($degats)
