@@ -10,7 +10,7 @@ class PersonnagesRepository
   
   public function add(Personnage $perso)
   {
-    $q = $this->_db->prepare('INSERT INTO personnages(nom) VALUES(:nom)');
+    $q = $this->_db->prepare('INSERT INTO personnages_v2(nom) VALUES(:nom)');
     $q->bindValue(':nom', $perso->nom());
     $q->execute();
     
@@ -22,24 +22,24 @@ class PersonnagesRepository
   
   public function count()
   {
-    return $this->_db->query('SELECT COUNT(*) FROM personnages')->fetchColumn();
+    return $this->_db->query('SELECT COUNT(*) FROM personnages_v2')->fetchColumn();
   }
   
   public function delete(Personnage $perso)
   {
-    $this->_db->exec('DELETE FROM personnages WHERE id = '.$perso->id());
+    $this->_db->exec('DELETE FROM personnages_v2 WHERE id = '.$perso->id());
   }
   
   public function exists($info)
   {
     if (is_int($info)) // On veut voir si tel personnage ayant pour id $info existe.
     {
-      return (bool) $this->_db->query('SELECT COUNT(*) FROM personnages WHERE id = '.$info)->fetchColumn();
+      return (bool) $this->_db->query('SELECT COUNT(*) FROM personnages_v2 WHERE id = '.$info)->fetchColumn();
     }
     
     // Sinon, c'est qu'on veut vérifier que le nom existe ou pas.
     
-    $q = $this->_db->prepare('SELECT COUNT(*) FROM personnages WHERE nom = :nom');
+    $q = $this->_db->prepare('SELECT COUNT(*) FROM personnages_v2 WHERE nom = :nom');
     $q->execute([':nom' => $info]);
     
     return (bool) $q->fetchColumn();
@@ -49,14 +49,14 @@ class PersonnagesRepository
   {
     if (is_int($info))
     {
-      $q = $this->_db->query('SELECT id, nom, degats FROM personnages WHERE id = '.$info);
+      $q = $this->_db->query('SELECT id, nom, degats FROM personnages_v2 WHERE id = '.$info);
       $donnees = $q->fetch(PDO::FETCH_ASSOC);
       
       return new Personnage($donnees);
     }
     else
     {
-      $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages WHERE nom = :nom');
+      $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages_v2 WHERE nom = :nom');
       $q->execute([':nom' => $info]);
     
       return new Personnage($q->fetch(PDO::FETCH_ASSOC));
@@ -67,7 +67,7 @@ class PersonnagesRepository
   {
     $persos = [];
     
-    $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages WHERE nom <> :nom ORDER BY nom');
+    $q = $this->_db->prepare('SELECT id, nom, degats FROM personnages_v2 WHERE nom <> :nom ORDER BY nom');
     $q->execute([':nom' => $nom]);
     
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
@@ -80,7 +80,7 @@ class PersonnagesRepository
   
   public function update(Personnage $perso)
   {
-    $q = $this->_db->prepare('UPDATE personnages SET degats = :degats WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE personnages_v2 SET degats = :degats WHERE id = :id');
     
     $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
     $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
