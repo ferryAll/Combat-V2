@@ -30,7 +30,6 @@ if (isset($_SESSION['perso'])) // Si la session perso existe, on restaure l'obje
 if (isset($_POST['creer']) && isset($_POST['nom'])) // Si on a voulu créer un personnage.
 {
   $perso = new Personnage(['nom' => $_POST['nom']]); // On crée un nouveau personnage.
-  
   if (!$perso->nomValide())
   {
     $message = 'Le nom choisi est invalide.';
@@ -163,7 +162,13 @@ else
       <p>
         Nom : <input type="text" name="nom" maxlength="50" />
         <input type="submit" value="Créer ce personnage" name="creer" />
+          <select name="type">
+           <option value="magicien"> Magicien</option>
+           <option value="guerrier"> Guerrier</option>
+          </select>
+
         <input type="submit" value="Utiliser ce personnage" name="utiliser" />
+      
       </p>
     </form>
 <?php
